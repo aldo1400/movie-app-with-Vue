@@ -1,20 +1,15 @@
 <template>
-  <div id="app">
+  <div id="app" v-if="status==='Ready'">
     <Header :title="title"/>
-    <img alt="Vue logo" src="./assets/logo.png">
-    <h1>{{ hello }}</h1>
-    <ul>
-      <li v-for="(item,index) in list" :key="index">{{index+1}} - {{item}}</li>
-      <li v-for="(person,index) in people" :key="index">{{index}} - {{person.name}}</li>
-      <li v-for="(value,index) in profile" :key="index">{{index}} - {{value}}</li>
-    </ul>
-    <HelloWorld v-for="person in people" :key="person.id" msg="Welcome to Your Vue.js App xD xD"/>
+    <MoviesList/>
   </div>
+  <div v-else-if="status==='Loading'">Loading</div>
+  <div v-else>Error</div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
 import Header from "./components/Header.vue";
+import MoviesList from "./components/MoviesList.vue";
 
 export default {
   name: "app",
@@ -23,6 +18,8 @@ export default {
       hello: "Hello World",
       title: "Vue movie DB APP1",
       list: ["Penguin", "Turtle", "Red Panda"],
+      isTrue: true,
+      status: "Ready",
       people: [
         { id: 1, name: "Scott" },
         { id: "2", name: "Courtney" },
@@ -36,7 +33,7 @@ export default {
     };
   },
   components: {
-    HelloWorld,
+    MoviesList,
     Header
   }
 };

@@ -1,6 +1,6 @@
 <template>
   <header>
-    <h1>{{title}}</h1>
+    <h1>{{newTitle}}</h1>
   </header>
 </template>
 
@@ -9,6 +9,19 @@ export default {
   name: "Header",
   props: {
     title: String
+  },
+  data() {
+    return {
+      name: "Scott"
+    };
+  },
+  computed: {
+    newTitle: function() {
+      if (this.title === "hello") {
+        return this.title;
+      }
+      return this.name;
+    }
   }
 };
 </script>
@@ -23,4 +36,3 @@ h1 {
   margin: 0;
 }
 </style>
-
