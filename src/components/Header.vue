@@ -1,6 +1,8 @@
 <template>
   <header>
-    <router-link to="/">{{title}}</router-link>
+    <router-link to="/">
+      <img src="../assets/logo.svg">
+    </router-link>
   </header>
 </template>
 
