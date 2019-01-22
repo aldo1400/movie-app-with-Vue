@@ -1,9 +1,7 @@
 <template>
   <div id="app">
     <Header :title="title"/>
-    <transition>
-      <router-view/>
-    </transition>
+    <router-view/>
   </div>
 </template>
 
